@@ -28,6 +28,17 @@ class ViewerShortcutsTest {
     }
 
     @Test
+    fun mediaFindEditAndFileCommands() {
+        assertEquals(ViewerCommand.PLAY_PAUSE, ViewerShortcuts.commandFor(KeyChord("Space")))
+        assertEquals(ViewerCommand.FIND, ViewerShortcuts.commandFor(KeyChord("F", ctrl = true)))
+        assertEquals(ViewerCommand.EDIT, ViewerShortcuts.commandFor(KeyChord("E", ctrl = true)))
+        assertEquals(ViewerCommand.PRINT, ViewerShortcuts.commandFor(KeyChord("P", ctrl = true)))
+        assertEquals(ViewerCommand.RENAME, ViewerShortcuts.commandFor(KeyChord("F2")))
+        assertEquals(ViewerCommand.TRASH, ViewerShortcuts.commandFor(KeyChord("Delete")))
+        assertEquals(ViewerCommand.CLOSE, ViewerShortcuts.commandFor(KeyChord("Escape")))
+    }
+
+    @Test
     fun unboundKeys() {
         assertNull(ViewerShortcuts.commandFor(KeyChord("R")))
         assertNull(ViewerShortcuts.commandFor(KeyChord("Left", ctrl = true)))
