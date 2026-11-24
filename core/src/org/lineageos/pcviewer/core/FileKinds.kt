@@ -1,6 +1,6 @@
 package org.lineageos.pcviewer.core
 
-enum class FileKind { IMAGE, PDF, TEXT, UNSUPPORTED }
+enum class FileKind { IMAGE, SVG, PDF, TEXT, AUDIO, VIDEO, UNSUPPORTED }
 
 /** What a file is, from its MIME type, or from its extension when the type says nothing. */
 object FileKinds {
@@ -8,7 +8,8 @@ object FileKinds {
 
     private val BY_MIME = mapOf(
         "application/pdf" to FileKind.PDF,
-        "image/svg+xml" to FileKind.TEXT,
+        "image/svg+xml" to FileKind.SVG,
+        "application/ogg" to FileKind.AUDIO,
         "application/json" to FileKind.TEXT,
         "application/xml" to FileKind.TEXT,
         "application/javascript" to FileKind.TEXT,
@@ -18,6 +19,8 @@ object FileKinds {
     private val BY_MIME_PREFIX = mapOf(
         "image/" to FileKind.IMAGE,
         "text/" to FileKind.TEXT,
+        "audio/" to FileKind.AUDIO,
+        "video/" to FileKind.VIDEO,
     )
 
     private val BY_EXTENSION = mapOf(
@@ -26,8 +29,14 @@ object FileKinds {
         "avif" to FileKind.IMAGE, "ico" to FileKind.IMAGE, "dng" to FileKind.IMAGE, "wbmp" to FileKind.IMAGE,
         "pdf" to FileKind.PDF,
         "txt" to FileKind.TEXT, "md" to FileKind.TEXT, "log" to FileKind.TEXT, "csv" to FileKind.TEXT,
-        "json" to FileKind.TEXT, "xml" to FileKind.TEXT, "svg" to FileKind.TEXT, "ini" to FileKind.TEXT,
+        "json" to FileKind.TEXT, "xml" to FileKind.TEXT, "ini" to FileKind.TEXT,
         "conf" to FileKind.TEXT, "sh" to FileKind.TEXT,
+        "svg" to FileKind.SVG,
+        "mp4" to FileKind.VIDEO, "m4v" to FileKind.VIDEO, "mkv" to FileKind.VIDEO, "webm" to FileKind.VIDEO,
+        "mov" to FileKind.VIDEO, "3gp" to FileKind.VIDEO, "avi" to FileKind.VIDEO, "ts" to FileKind.VIDEO,
+        "mp3" to FileKind.AUDIO, "m4a" to FileKind.AUDIO, "aac" to FileKind.AUDIO, "flac" to FileKind.AUDIO,
+        "ogg" to FileKind.AUDIO, "oga" to FileKind.AUDIO, "opus" to FileKind.AUDIO, "wav" to FileKind.AUDIO,
+        "amr" to FileKind.AUDIO, "mid" to FileKind.AUDIO, "midi" to FileKind.AUDIO,
     )
 
     fun detect(mime: String?, name: String?): FileKind {

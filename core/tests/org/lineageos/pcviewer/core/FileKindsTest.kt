@@ -24,8 +24,20 @@ class FileKindsTest {
     }
 
     @Test
-    fun svgIsShownAsText() {
-        assertEquals(FileKind.TEXT, FileKinds.detect("image/svg+xml", "logo.svg"))
+    fun svgIsDrawn() {
+        assertEquals(FileKind.SVG, FileKinds.detect("image/svg+xml", "logo.svg"))
+        assertEquals(FileKind.SVG, FileKinds.detect(null, "logo.SVG"))
+    }
+
+    @Test
+    fun audioAndVideo() {
+        assertEquals(FileKind.VIDEO, FileKinds.detect("video/mp4", "clip.mp4"))
+        assertEquals(FileKind.AUDIO, FileKinds.detect("audio/mpeg", null))
+        assertEquals(FileKind.AUDIO, FileKinds.detect("application/ogg", "a.ogg"))
+        assertEquals(FileKind.VIDEO, FileKinds.detect(null, "filme.mkv"))
+        assertEquals(FileKind.VIDEO, FileKinds.detect(null, "a.webm"))
+        assertEquals(FileKind.AUDIO, FileKinds.detect(null, "musica.flac"))
+        assertEquals(FileKind.AUDIO, FileKinds.detect("application/octet-stream", "voz.opus"))
     }
 
     @Test
@@ -37,7 +49,7 @@ class FileKindsTest {
 
     @Test
     fun unknownIsUnsupported() {
-        assertEquals(FileKind.UNSUPPORTED, FileKinds.detect("video/mp4", "clip.mp4"))
+        assertEquals(FileKind.UNSUPPORTED, FileKinds.detect("application/zip", "a.zip"))
         assertEquals(FileKind.UNSUPPORTED, FileKinds.detect(null, "arquivo"))
         assertEquals(FileKind.UNSUPPORTED, FileKinds.detect("application/zip", "a.png"))
     }
@@ -47,5 +59,6 @@ class FileKindsTest {
         assertEquals("PNG", FileKinds.typeName("image/png", "foto.png"))
         assertEquals("JPEG", FileKinds.typeName("image/jpeg", "sem-extensao"))
         assertEquals("", FileKinds.typeName(null, "sem-extensao"))
+        assertEquals("SVG", FileKinds.typeName("image/svg+xml", "sem-extensao"))
     }
 }
