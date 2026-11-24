@@ -1,0 +1,24 @@
+// PcViewer: "Viewer", the image, PDF and text viewer of LineageOS for PCs. The viewer's logic lives in
+// core/ and is tested on the host.
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+java_library {
+    name: "PcViewerCore",
+    host_supported: true,
+    srcs: ["core/src/**/*.kt"],
+    sdk_version: "core_current",
+}
+
+java_test_host {
+    name: "PcViewerCoreTests",
+    srcs: ["core/tests/**/*.kt"],
+    static_libs: [
+        "PcViewerCore",
+        "junit",
+    ],
+    test_options: {
+        unit_test: true,
+    },
+}
