@@ -22,3 +22,34 @@ java_test_host {
         unit_test: true,
     },
 }
+
+android_app {
+    name: "PcViewer",
+    srcs: ["src/**/*.kt"],
+    resource_dirs: ["res"],
+    manifest: "AndroidManifest.xml",
+    sdk_version: "current",
+    product_specific: true,
+    static_libs: [
+        "PcViewerCore",
+        // Text decoding (encoding and line break detection) is shared with the text editor.
+        "PcTextEditorCore",
+        "androidx.activity_activity",
+        "androidx.activity_activity-compose",
+        "androidx.lifecycle_lifecycle-viewmodel",
+        "androidx.lifecycle_lifecycle-runtime-compose",
+        "androidx.compose.runtime_runtime",
+        "androidx.compose.ui_ui",
+        "androidx.compose.foundation_foundation",
+        "androidx.compose.foundation_foundation-layout",
+        "androidx.compose.animation_animation",
+        "androidx.compose.material3_material3",
+        "androidx.compose.material_material-icons-core",
+        "androidx.compose.material_material-icons-extended",
+        "kotlinx_coroutines_android",
+    ],
+    optimize: {
+        optimize: true,
+        shrink_resources: true,
+    },
+}

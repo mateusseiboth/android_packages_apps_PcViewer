@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Viewer</string>
+    <string name="welcome_title">Welcome!</string>
+    <string name="welcome_subtitle">View your images, PDFs and text files.</string>
+    <string name="open_file">Open file</string>
+    <string name="open_other">Open…</string>
+    <string name="cant_open_title">Can\'t open file</string>
+    <string name="cant_open_unsupported">Viewer can\'t show %1$s. Open it with another app.</string>
+    <string name="cant_open_failed">Something went wrong with %1$s. Try opening it again.</string>
+    <string name="cant_open_empty">%1$s is empty.</string>
+    <string name="cant_open_protected">%1$s has a password and can\'t be opened here.</string>
+    <string name="cant_open_too_large">%1$s is too large to show here. Use Edit file to open it in a text editor.</string>
+    <string name="zoom_in">Zoom in</string>
+    <string name="zoom_out">Zoom out</string>
+    <string name="zoom_fit">Fit to view</string>
+    <string name="zoom_percent">%1$d%%</string>
+    <string name="rotate_left">Rotate left</string>
+    <string name="rotate_right">Rotate right</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="page_indicator">%1$d / %2$d</string>
+    <string name="edit_file">Edit file</string>
+    <string name="share">Share</string>
+    <string name="file_info">File info</string>
+    <string name="more_options">More options</string>
+    <string name="details_title">Details</string>
+    <string name="details_name">Name</string>
+    <string name="details_type">Type</string>
+    <string name="details_size">Size</string>
+    <string name="details_modified">Date modified</string>
+    <string name="details_dimensions">Dimensions</string>
+    <string name="details_pages">Pages</string>
+    <string name="dimensions_value">%1$d × %2$d px</string>
+    <string name="type_image">%1$s image</string>
+    <string name="type_pdf">PDF document</string>
+    <string name="type_text">%1$s text</string>
+    <string name="type_other">File</string>
+    <string name="ok">OK</string>
+    <string name="save">Save</string>
+    <string name="save_as">Save as…</string>
+    <string name="saved">Saved</string>
+    <string name="save_failed">Can\'t save the file. Use Save as to choose another place.</string>
+    <string name="no_app">No app on this device can do that.</string>
+</resources>
