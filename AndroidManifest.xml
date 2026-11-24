@@ -8,6 +8,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.lineageos.pcviewer">
 
+    <!-- Only to step through the folder of a photo, video or song opened on its own; asked when used. -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+
     <application
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
@@ -38,6 +44,9 @@
                 <data android:mimeType="image/*" />
                 <data android:mimeType="application/pdf" />
                 <data android:mimeType="text/plain" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="application/ogg" />
             </intent-filter>
             <!-- Only images are edited here (rotate and save); text goes to the text editor. -->
             <intent-filter>

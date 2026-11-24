@@ -18,6 +18,7 @@ import org.lineageos.pcviewer.ViewerContent
 import org.lineageos.pcviewer.ViewerItem
 import org.lineageos.pcviewer.core.FileKind
 import org.lineageos.pcviewer.core.FileKinds
+import org.lineageos.pcviewer.core.MediaTime
 
 /** Name, type, size, date and, for images and PDFs, the dimensions or page count. */
 @Composable
@@ -44,6 +45,7 @@ private fun detailRows(content: ViewerContent, item: ViewerItem): List<Pair<Int,
         is ViewerContent.Image -> R.string.details_dimensions to
             stringResource(R.string.dimensions_value, content.original.width, content.original.height)
         is ViewerContent.Pdf -> R.string.details_pages to content.document.pageCount.toString()
+        is ViewerContent.Media -> R.string.details_duration to MediaTime.format(content.playback.duration)
         else -> null
     }
     return listOfNotNull(
@@ -60,8 +62,11 @@ private fun typeLabel(item: ViewerItem): String {
     val type = FileKinds.typeName(item.mime, item.name)
     val labels = mapOf(
         FileKind.IMAGE to R.string.type_image,
+        FileKind.SVG to R.string.type_image,
         FileKind.PDF to R.string.type_pdf,
         FileKind.TEXT to R.string.type_text,
+        FileKind.AUDIO to R.string.type_audio,
+        FileKind.VIDEO to R.string.type_video,
         FileKind.UNSUPPORTED to R.string.type_other,
     )
     return stringResource(labels.getValue(item.kind), type)

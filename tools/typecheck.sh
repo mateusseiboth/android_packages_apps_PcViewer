@@ -12,7 +12,8 @@ INTER=$TOP/out/soong/.intermediates
 rm -rf "$WORK" && mkdir -p "$WORK/libs" "$WORK/gen"
 
 for a in $(cd "$M" && ls -d compose/*/* lifecycle/* activity/* savedstate/* navigationevent/* core/core \
-           collection/collection-jvm annotation/annotation-jvm annotation/annotation-experimental); do
+           collection/collection-jvm annotation/annotation-jvm annotation/annotation-experimental \
+           exifinterface/exifinterface print/print); do
   v=$(ls "$M/$a" | sort -V | tail -1)
   for f in "$M/$a/$v"/*; do
     case "$f" in

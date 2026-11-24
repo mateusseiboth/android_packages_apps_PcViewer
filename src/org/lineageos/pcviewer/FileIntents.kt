@@ -28,6 +28,9 @@ object FileIntents {
         return start(context, edit)
     }
 
+    fun openLink(context: Context, uri: String): Boolean =
+        start(context, Intent(Intent.ACTION_VIEW, android.net.Uri.parse(uri)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+
     private fun start(context: Context, intent: Intent): Boolean =
         runCatching { context.startActivity(intent) }
             .map { true }

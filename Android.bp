@@ -47,6 +47,10 @@ android_app {
         "androidx.compose.material_material-icons-core",
         "androidx.compose.material_material-icons-extended",
         "kotlinx_coroutines_android",
+        // Keeps a photo's EXIF data when an edited copy is saved.
+        "androidx.exifinterface_exifinterface",
+        // Prints images (PrintHelper); PDFs and text use our own print adapters.
+        "androidx.print_print",
     ],
     optimize: {
         optimize: true,

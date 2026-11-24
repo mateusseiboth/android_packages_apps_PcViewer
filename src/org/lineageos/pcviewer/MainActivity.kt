@@ -23,6 +23,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    /** Playback pauses when the window leaves the screen. */
+    override fun onStop() {
+        super.onStop()
+        vm.pausePlayback()
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         show(intent)

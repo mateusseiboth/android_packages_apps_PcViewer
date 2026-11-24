@@ -14,7 +14,8 @@ import org.lineageos.pcviewer.core.KeyChord
 private val KEY_NAMES = mapOf(
     Key.DirectionLeft to "Left", Key.DirectionRight to "Right", Key.Plus to "Plus", Key.NumPadAdd to "Plus",
     Key.Equals to "Equals", Key.Minus to "Minus", Key.NumPadSubtract to "Minus", Key.Zero to "0",
-    Key.R to "R", Key.O to "O", Key.S to "S",
+    Key.R to "R", Key.O to "O", Key.S to "S", Key.Spacebar to "Space", Key.F to "F", Key.E to "E", Key.P to "P",
+    Key.F2 to "F2", Key.Delete to "Delete", Key.Escape to "Escape",
 )
 
 fun KeyEvent.toChord(): KeyChord? {
