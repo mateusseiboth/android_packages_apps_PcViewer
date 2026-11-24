@@ -59,9 +59,9 @@ data class ImageTransform(
 
     fun zoomBy(factor: Float, focus: Point2): ImageTransform = zoomTo(scale * factor, focus)
 
-    fun zoomIn(): ImageTransform = zoomTo(STEPS.firstOrNull { it > scale + EPSILON } ?: MAX_SCALE)
+    fun zoomIn(): ImageTransform = zoomTo(ZoomSteps.zoomIn(scale, MAX_SCALE))
 
-    fun zoomOut(): ImageTransform = zoomTo(STEPS.lastOrNull { it < scale - EPSILON } ?: MIN_SCALE)
+    fun zoomOut(): ImageTransform = zoomTo(ZoomSteps.zoomOut(scale, min(MIN_SCALE, fitScale)))
 
     /** Double click: a fitted image goes to its actual size (2x if it already fits at 1x), otherwise back to fit. */
     fun toggleZoom(focus: Point2): ImageTransform {
@@ -89,7 +89,6 @@ data class ImageTransform(
         const val MIN_SCALE = 0.05f
         const val MAX_SCALE = 8f
         private const val EPSILON = 0.001f
-        private val STEPS = listOf(0.05f, 0.1f, 0.2f, 0.25f, 0.33f, 0.5f, 0.67f, 0.75f, 1f, 1.25f, 1.5f, 2f, 3f, 4f, 6f, 8f)
 
         fun initial(content: Size2, viewport: Size2): ImageTransform =
             ImageTransform(content, viewport, 1f, Point2.ZERO, 0, isFit = true).fit()
