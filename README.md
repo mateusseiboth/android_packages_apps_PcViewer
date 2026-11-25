@@ -88,6 +88,14 @@ tools/typecheck.sh                      # compiles core + PcTextEditorCore + Com
 - SVG: clipping, masks, filters, patterns, embedded images and CSS style sheets are not drawn.
 - PDF: no text selection, forms or annotations.
 
+## Screenshots
+
+Taken in QEMU/KVM at 1920x1080 from the live ISO.
+
+![Viewer before a file is opened.](docs/screenshots/13-viewer.png)
+
+Viewer before a file is opened.
+
 ## Credits
 
 This app is part of LineageOS for PCs and builds on:
